@@ -41,6 +41,10 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: lington/lingtonpuffyapp
+          tags: |
+            latest
+            run-${{ github.run_number }}
+            ${{ github.sha }}
 
       - name: Build and push Docker image
         id: push
